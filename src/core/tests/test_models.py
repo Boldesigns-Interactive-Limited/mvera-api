@@ -40,3 +40,10 @@ class ModelTest(TestCase):
 
     self.assertTrue(user.is_superuser)
     self.assertTrue(user.is_staff)
+
+
+
+
+  def test_payments_str(self):
+    """Test the ingredient string representation"""
+    payment = models.Payments.objects.create(user=sample_user(), name='Cucumber') 
