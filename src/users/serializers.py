@@ -19,10 +19,14 @@ class UserSerializer(AbstractBaseSerializer):
 
 
 
-class AuthTokenSerializer(AbstractBaseSerializer):
+class AuthTokenSerializer(serializers.ModelSerializer):
   """Serializers for the user authentication object"""
   email = serializers.EmailField()
   password = serializers.CharField(style={'input_type': 'password'}, trim_whitespace=False)
+
+  class Meta:
+    model = get_user_model()
+    fields = ('email', 'password')
 
   def validate(self, attrs):
     """Validate and authenticate the user"""
@@ -37,4 +41,3 @@ class AuthTokenSerializer(AbstractBaseSerializer):
 
     attrs['user'] = user
     return attrs
-    

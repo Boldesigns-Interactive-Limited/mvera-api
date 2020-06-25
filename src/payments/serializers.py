@@ -6,7 +6,7 @@ class PaymentSerializer(AbstractBaseSerializer):
 
   class Meta:
     model = Payment
-    fields = ('name', 'description', 'image', )
+    fields = ('transaction_type', 'transaction_id', 'transaction_time', 'transaction_amount', 'short_code', 'bill_ref_number', 'org_account_balance', 'third_party_trans_id', 'msisdb', 'first_name', 'middle_name', 'last_name', 'confirm')
 
 
 class ShortCodeSerializer(AbstractBaseSerializer):
@@ -14,7 +14,7 @@ class ShortCodeSerializer(AbstractBaseSerializer):
 
   class Meta:
     model = ShortCode
-    fields = ('name', 'description', 'image', )
+    fields = ('company', 'short_code', 'organization_name', 'mpesa_user_name', 'consumer_key', 'consumer_secret', 'verified', 'pass_key')
 
   
 class RegisterUrlSerializer(AbstractBaseSerializer):
@@ -22,4 +22,4 @@ class RegisterUrlSerializer(AbstractBaseSerializer):
 
   class Meta:
     model = RegisterUrl
-    fields = ('name', 'description', 'image', )
+    fields = ('shortcode', 'confirmation', 'validation', 'response_description', 'response_type')

@@ -183,7 +183,7 @@ class Product(AbstractBase):
 class RegisterUrl(AbstractBase):
   shortcode = models.CharField(max_length=21, null=True)
   confirmation = models.URLField()
-  validated = models.URLField()
+  validation = models.URLField()
   response_description = models.CharField(max_length=1000)
   response_type = models.CharField(max_length=21)
 
@@ -191,8 +191,8 @@ class RegisterUrl(AbstractBase):
     return self.confirmation
 
 class Payment(AbstractBase):
-  transction_type = models.CharField(max_length=21, null=True, blank=True)
-  transction_id = models.CharField(max_length=21, null=True, blank=True)
+  transaction_type = models.CharField(max_length=21, null=True, blank=True)
+  transaction_id = models.CharField(max_length=21, null=True, blank=True)
   transaction_time = models.CharField(max_length=21, null=True, blank=True)
   transaction_amount = models.DecimalField(max_digits=21, decimal_places=2, default=0.00)
   short_code = models.CharField(max_length=21, blank=True, null=True)
@@ -211,7 +211,6 @@ class Payment(AbstractBase):
     ordering = ('-created',)
 
 class ShortCode(AbstractBase):
-  owner = models.ForeignKey(AUTH_USER_MODEL, related_name='short_code_name', blank=True, null=True, on_delete=models.PROTECT)
   company = models.ForeignKey(Company, related_name='company_of_short_code', null=True, blank=True, on_delete=models.PROTECT)
   short_code = models.CharField(max_length=21, blank=True, null=True)
   organization_name = models.CharField(max_length=100, blank=True, null=True)
