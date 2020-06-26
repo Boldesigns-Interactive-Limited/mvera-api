@@ -5,17 +5,17 @@ from core.models import Payment, RegisterUrl, ShortCode
 from payments.serializers import PaymentSerializer, RegisterUrlSerializer, ShortCodeSerializer
 
 
-class CreatePaymentView(generics.CreateAPIView):
+class CreatePaymentView(generics.ListCreateAPIView):
   """Creates a new user in the system"""
   queryset = Payment.objects.all()
   serializer_class = PaymentSerializer
 
-class RegisterUrlView(generics.CreateAPIView):
+class RegisterUrlView(generics.ListCreateAPIView):
   """Creates a new user in the system"""
   queryset = RegisterUrl.objects.all()
   serializer_class = RegisterUrlSerializer
 
-class CreateShortCodeView(generics.CreateAPIView):
+class CreateShortCodeView(generics.ListCreateAPIView):
   """Creates a new user in the system"""
   queryset = ShortCode.objects.all()
   serializer_class = ShortCodeSerializer

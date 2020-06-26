@@ -6,7 +6,7 @@ class CategorySerializer(AbstractBaseSerializer):
 
   class Meta:
     model = Category
-    fields = ('name', 'description', 'image', )
+    fields = '__all__'
 
 
 class SubCategorySerializer(AbstractBaseSerializer):
@@ -14,7 +14,7 @@ class SubCategorySerializer(AbstractBaseSerializer):
 
   class Meta:
     model = SubCategory
-    fields = ('category', 'name', 'description', 'image', )
+    fields = '__all__'
 
 
 class ProductSerializer(AbstractBaseSerializer):
@@ -22,4 +22,4 @@ class ProductSerializer(AbstractBaseSerializer):
 
   class Meta:
     model = Product
-    fields = ('category', 'sub_category', 'name', 'description', 'price', 'image', )
+    fields = '__all__'

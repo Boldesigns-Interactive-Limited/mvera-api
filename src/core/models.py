@@ -147,7 +147,7 @@ class Category(AbstractBase):
     ordering = ('-created',)
 
   def ___str__(self):
-    return self.name
+    return str(self.name)
 
 class SubCategory(AbstractBase):
   category = models.ForeignKey(Category, related_name='category_name', null=True, blank=True, on_delete=models.PROTECT)
